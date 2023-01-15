@@ -1,0 +1,93 @@
+@use "variables";
+
+.btn {
+    font-family: variables.$font-principal;
+    max-width: 9.5rem;
+    padding: 0.9rem;
+    background-color: variables.$color-simpleBlack;
+    color: variables.$color-blue;
+    border-radius: 0.5rem;
+    border: 0.1rem solid variables.$color-blue;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+
+    &:hover {
+        background-color: variables.$color-blue;
+        color: white;
+    }
+}
+
+.icon__link {
+    font-size: 1.5rem;
+    color: variables.$color-lightBlue;
+    transition: all 0.2s;
+
+    &:hover {
+        color: variables.$color-blue;
+    }
+}
+
+.nav {
+    margin: 0.5rem;
+    &__links {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__link {
+        padding: 0.5rem;
+        color: variables.$color-lightBlue;
+        text-decoration: none;
+        transition: all 0.2s;
+
+        &:hover {
+            color: variables.$color-blue;
+        }
+    }
+}
+
+.card {
+    background-color: variables.$color-darkBrlue;
+    margin: 2rem auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 3px 3px 4px 3px #00000088;
+    display: flex;
+    flex-direction: column;
+
+    &__image {
+        max-width: 100%;
+    }
+
+    &__info {
+        width: 100%;
+        height: 15rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__title {
+        color: white;
+        padding-bottom: 0.5rem;
+    }
+
+    &__footer {
+        align-self: end;
+    }
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+
+        &__image {
+            max-width: 50%;
+        }
+
+        &__info {
+            height: auto;
+        }
+    }
+}

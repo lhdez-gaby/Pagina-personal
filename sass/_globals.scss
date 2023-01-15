@@ -1,0 +1,228 @@
+@use "sass:math";
+@use "variables";
+
+@mixin title($color, $fontSize) {
+    color: $color;
+    font-size: $fontSize;
+    font-family: variables.$font-secondary;
+    font-weight: 700;
+}
+
+@mixin basic {
+    padding: pixeles-rem(110) pixeles-rem(24) pixeles-rem(24) pixeles-rem(20);
+    background: variables.$bg-gradient;
+}
+
+@mixin mediaPadding {
+    padding-top: pixeles-rem(60);
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+@function pixeles-rem($pixeles) {
+    $rem: math.div($pixeles, 16) * 1rem;
+    @return $rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: variables.$color-lightBlue;
+    font-family: variables.$font-principal;
+}
+
+.header {
+    width: 100%;
+    max-height: 110px;
+    padding: 0 1rem;
+    background: variables.$bg-gradient;
+    position: fixed;
+    @include flexColumn;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        padding-left: 10%;
+        padding-right: 10%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.logo {
+    margin: pixeles-rem(10);
+    max-width: pixeles-rem(40);
+}
+
+.welcome {
+    height: 100vh;
+    @include basic;
+    @include flexColumn;
+    justify-content: space-around;
+
+    &__say-hello {
+        @include title(white, pixeles-rem(24));
+        padding-top: pixeles-rem(60);
+        padding-bottom: pixeles-rem(10);
+    }
+
+    &__name {
+        @include title(variables.$color-blue, pixeles-rem(24));
+        padding-bottom: pixeles-rem(10);
+    }
+
+    &__dev-web {
+        @include title(white, pixeles-rem(24));
+    }
+
+    @media (min-width: 425px) {
+        &__say-hello {
+            font-size: 2.3rem;
+            padding-top: pixeles-rem(30);
+        }
+
+        &__name {
+            font-size: 2.3rem;
+        }
+
+        &__dev-web {
+            font-size: 2.3rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        @include mediaPadding;
+
+        &__say-hello {
+            font-size: 3.5rem;
+            padding-top: pixeles-rem(20);
+            padding-bottom: pixeles-rem(20);
+        }
+
+        &__name {
+            font-size: 3.5rem;
+            padding-bottom: pixeles-rem(20);
+        }
+
+        &__dev-web {
+            font-size: 3.5rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        @include mediaPadding;
+
+        &__say-hello {
+            font-size: 5rem;
+        }
+
+        &__name {
+            font-size: 5rem;
+        }
+
+        &__dev-web {
+            font-size: 5rem;
+        }
+    }
+}
+
+.section__title {
+    @include title(variables.$color-blue, pixeles-rem(20));
+    padding-bottom: 1rem;
+}
+
+.about {
+    @include basic;
+    padding-bottom: pixeles-rem(60);
+    @include flexColumn;
+
+    &__text {
+        padding-bottom: pixeles-rem(64);
+    }
+
+    &__paragraph {
+        margin: 1rem 0;
+    }
+
+    &__list {
+        list-style: none;
+
+        &--item {
+            display: flex;
+            align-items: center;
+            gap: pixeles-rem(5);
+        }
+
+        &--icon {
+            font-size: pixeles-rem(7);
+            color: variables.$color-blue;
+        }
+    }
+
+    &__foto {
+        margin: auto;
+        max-width: pixeles-rem(150);
+        border-radius: pixeles-rem(5);
+        box-shadow: pixeles-rem(15) pixeles-rem(15) 0 0 variables.$color-blue;
+    }
+
+    @media (min-width: 768px) {
+        @include mediaPadding;
+        flex-direction: row;
+        gap: pixeles-rem(60);
+
+        &__text {
+            width: 50%;
+        }
+    }
+}
+
+.projects {
+    @include basic;
+
+    @media (min-width: 768px) {
+        @include mediaPadding;
+    }
+}
+
+.contact {
+    @include basic;
+
+    &__mail {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-top: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+        @include mediaPadding;
+    }
+}
+
+.footer {
+    @include basic;
+    padding: 1rem 0 0 1rem;
+
+    &__social {
+        color: white;
+        @include flexColumn;
+        align-items: center;
+    }
+
+    &__copyright {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: pixeles-rem(12);
+        margin-top: 1rem;
+        padding-bottom: 1.5rem;
+    }
+}
