@@ -38,6 +38,7 @@
 body {
     color: variables.$color-lightBlue;
     font-family: variables.$font-principal;
+    scroll-behavior: smooth;
 }
 
 .header {

@@ -16,7 +16,7 @@
 }
 
 .icon__link {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #DEF5FE;
   transition: all 0.2s;
 }
@@ -90,6 +90,7 @@
 body {
   color: #DEF5FE;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 .header {
